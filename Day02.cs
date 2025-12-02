@@ -5,13 +5,16 @@
         private readonly string _fileDayName = "Two";
         public string GetName() => "Day 02";
 
+        const char RangeSeparator = '-';
+        const char ListSeparator = ',';
+
         public async Task<long> One()
         {
             var data = await Common.ReadFile(_fileDayName, "One");
             List<long> invalidIds = new();
-            foreach(var item in data[0].Split(","))
+            foreach(var item in data[0].Split(ListSeparator))
             {
-                var splitItem = item.Split("-");
+                var splitItem = item.Split(RangeSeparator);
                 var low = long.Parse(splitItem[0]);
                 var high = long.Parse(splitItem[1]);
                 invalidIds.AddRange(GetInvalidIds(low, high));
@@ -23,9 +26,9 @@
         {
             var data = await Common.ReadFile(_fileDayName, "Two");
             List<long> invalidIds = new();
-            foreach (var item in data[0].Split(","))
+            foreach (var item in data[0].Split(ListSeparator))
             {
-                var splitItem = item.Split("-");
+                var splitItem = item.Split(RangeSeparator);
                 var low = long.Parse(splitItem[0]);
                 var high = long.Parse(splitItem[1]);
                 invalidIds.AddRange(GetInvalidIdsV2(low, high));
