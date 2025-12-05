@@ -1,6 +1,6 @@
 ﻿using AdventOfCode2025;
 
-IDay dayToRun = new Day03();
+IDay dayToRun = new Day05();
 
 Console.WriteLine(dayToRun.GetName());
 System.Diagnostics.Stopwatch stopwatch = new();
